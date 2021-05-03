@@ -13,6 +13,5 @@ class LoginPage(BasePage):
         assert self.browser.current_url in "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/", "Wrong login page url"
     def should_be_login_form(self):
         assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "Login form is not presented" 
-
     def should_be_register_form(self):
         assert self.is_element_present(*LoginPageLocators.REGISTER_FROM), "Regiter form is not presented" 
