@@ -28,5 +28,4 @@ def browser(request):
         print("\n starting chorme browser for test..")
     yield browser
     print("\n quit browser..")
-    time.sleep(5)
     browser.quit()
