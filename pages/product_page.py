@@ -42,3 +42,4 @@ class ProductPage(BasePage):
    
     def guest_should_disappeared_be_success_message(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented"
+        

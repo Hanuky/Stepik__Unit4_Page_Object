@@ -32,3 +32,4 @@ class BasePageLocators():
 
 class BasketPageLokators():
     EMPTY_BASKET_MASSAGE = (By.CSS_SELECTOR, "div#content_inner p")
+    

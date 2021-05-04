@@ -96,3 +96,4 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket = BasketPage(browser, link)
     basket.should_be_not_see_success_message_in_empty_basket()
     basket.should_be_see_message_basket_empty()          
+    
