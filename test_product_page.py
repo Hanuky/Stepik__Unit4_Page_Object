@@ -35,9 +35,9 @@ class TestUserAddToBasketFromProductPage():
         page = ProductPage(browser, link)
         page.open()
         page.add_product_in_basket()
-        page.chek_success_message_after_add_product()
-        page.chek_price_equals_basket_price()
-        page.chek_product_name_equal_product_basket_name()
+        page.check_success_message_after_add_product()
+        page.check_price_equals_basket_price()
+        page.check_product_name_equal_product_basket_name()
 
 @pytest.mark.xfail   
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
@@ -61,9 +61,9 @@ def test_guest_can_add_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
     page.add_product_in_basket()
-    page.chek_success_message_after_add_product()
-    page.chek_price_equals_basket_price()
-    page.chek_product_name_equal_product_basket_name()
+    page.check_success_message_after_add_product()
+    page.check_price_equals_basket_price()
+    page.check_product_name_equal_product_basket_name()
 
 @pytest.mark.need_review     
 def test_guest_can_go_to_login_page_from_product_page(browser):
@@ -96,4 +96,3 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket = BasketPage(browser, link)
     basket.should_be_not_see_success_message_in_empty_basket()
     basket.should_be_see_message_basket_empty()          
-    
