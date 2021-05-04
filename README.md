@@ -16,7 +16,7 @@ https://stepik.org/lesson/201964 step 1 to 14
 
 ```sh
 $ git clone https://github.com/Hanuky/Stepik__Unit4_Page_Object.git
-$ cd stepik_575_unit4_po
+$ cd Stepik__Unit4_Page_Object
 $ python -m venv venv
 $ venv/Scripts/activate
 $ pip install --upgrade pip
