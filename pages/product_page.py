@@ -2,6 +2,7 @@ from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 from .login_page import LoginPage
+from .locators import MainPageLocators
 
 class ProductPage(BasePage):
 
@@ -28,4 +29,4 @@ class ProductPage(BasePage):
     def guest_should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented"
     def guest_should_disappeared_be_success_message(self):
-        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented"    
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented"
