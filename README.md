@@ -41,4 +41,4 @@ $ pytest -v --tb=line --language=en
 
 ### Test run results example
 
-![run_all_tests_result_screenshot](https://imgur.com/87dqJxe)
+![run_all_tests_result_screenshot](https://i.imgur.com/87dqJxe.png)
