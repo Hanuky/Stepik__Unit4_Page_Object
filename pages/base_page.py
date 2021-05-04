@@ -62,12 +62,12 @@ class BasePage():
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"    
    
     def guest_should_see_basket_button_on_main_page(self):
-        check_button = self.is_element_present(*BasePageLocators.BUSKET_BUTTON)
+        check_button = self.is_element_present(*BasePageLocators.BASKET_BUTTON)
         assert check_button, "Basket button not found!!!"
     
-    def guest_should_be_can_clik_on_basket_button(self):
-        clik_button = self.browser.find_element(*BasePageLocators.BUSKET_BUTTON)    
-        clik_button.click()  
+    def guest_can_clik_on_basket_button(self):
+        click_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)    
+        click_button.click()  
    
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
