@@ -59,4 +59,7 @@ class BasePage():
         assert chek_button, "Basket button not found!!!"
     def guest_shoul_be_clik_on_basket_button(self):
         clik_button = self.browser.find_element(*BasePageLocators.BUSKET_BUTTON)    
-        clik_button.click()       
+        clik_button.click()  
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"         
