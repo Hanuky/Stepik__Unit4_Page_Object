@@ -1,8 +1,8 @@
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 import time
 import math
@@ -61,14 +61,15 @@ class BasePage():
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"    
    
-    def guest_shoul_be_see_basket_button_on_main_page(self):
+    def guest_should_be_see_basket_button_on_main_page(self):
         check_button = self.is_element_present(*BasePageLocators.BUSKET_BUTTON)
         assert check_button, "Basket button not found!!!"
     
-    def guest_shoul_be_clik_on_basket_button(self):
+    def guest_should_be_clik_on_basket_button(self):
         clik_button = self.browser.find_element(*BasePageLocators.BUSKET_BUTTON)    
         clik_button.click()  
    
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                  " probably unauthorised user" 
+                                                                   

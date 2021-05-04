@@ -34,17 +34,17 @@ class TestUserAddToBasketFromProductPage():
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"   
         page = ProductPage(browser, link)
         page.open()
-        page.add_product_in_basket()
+        page.add_product_to_basket()
         page.check_success_message_after_add_product()
         page.check_price_equals_basket_price()
-        page.check_product_name_equal_product_basket_name()
+        page.check_product_name_equals_product_basket_name()
 
 @pytest.mark.xfail   
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"   
     page = ProductPage(browser, link)
     page.open()
-    page.add_product_in_basket()
+    page.add_product_to_basket()
     page.guest_should_not_be_success_message()
 
 @pytest.mark.xfail    
@@ -52,18 +52,18 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"   
     page = ProductPage(browser, link)
     page.open()
-    page.add_product_in_basket()
-    page.guest_should_disappeared_be_success_message()
+    page.add_product_to_basket()
+    page.success_message_should_be_disappeared()
 
 @pytest.mark.need_review    
 def test_guest_can_add_product_to_basket(browser): 
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"   
     page = ProductPage(browser, link)
     page.open()
-    page.add_product_in_basket()
+    page.add_product_to_basket()
     page.check_success_message_after_add_product()
     page.check_price_equals_basket_price()
-    page.check_product_name_equal_product_basket_name()
+    page.check_product_name_equals_product_basket_name()
 
 @pytest.mark.need_review     
 def test_guest_can_go_to_login_page_from_product_page(browser):
@@ -91,8 +91,9 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"   
     page = ProductPage(browser, link)
     page.open()
-    page.guest_shoul_be_see_basket_button_on_main_page()
-    page.guest_shoul_be_clik_on_basket_button()
+    page.guest_should_be_see_basket_button_on_main_page()
+    page.guest_should_be_clik_on_basket_button()
     basket = BasketPage(browser, link)
-    basket.should_be_not_see_success_message_in_empty_basket()
-    basket.should_be_see_message_basket_empty()          
+    basket.not_see_success_message_in_empty_basket()
+    basket.should_be_message_basket_empty()          
+    

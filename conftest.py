@@ -1,8 +1,8 @@
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium import webdriver
 import pytest
 import time
+from selenium import webdriver
 
 
 def pytest_addoption(parser):
