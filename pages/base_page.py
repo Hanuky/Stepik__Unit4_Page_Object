@@ -1,30 +1,30 @@
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
 import time
 import math
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 from .locators import BasePageLocators
 
 
 class BasePage():
-    
+
     def __init__(self, browser, url):
         self.browser = browser
         self.url = url
-    
-    def open(self):  
-        self.browser.get(self.url)  
-    
+
+    def open(self):
+        self.browser.get(self.url)
+
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
         except (NoSuchElementException):
               return False
-        return True    
-   
+        return True
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
@@ -38,38 +38,37 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-    
+
     def is_disappeared(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException).\
                 until_not(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return False
-        return True    
-    
+        return True
+
     def is_not_element_present(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return True
-        return False    
-    
+        return False
+
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
-    
+
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"    
-   
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
     def guest_should_see_basket_button_on_main_page(self):
         check_button = self.is_element_present(*BasePageLocators.BASKET_BUTTON)
         assert check_button, "Basket button not found!!!"
-    
-    def guest_can_clik_on_basket_button(self):
-        click_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)    
-        click_button.click()  
-   
+
+    def guest_can_click_on_basket_button(self):
+        click_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        click_button.click()
+
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
-                                                                 " probably unauthorised user" 
-                                                                   
+                                                                    " probably unauthorised user"

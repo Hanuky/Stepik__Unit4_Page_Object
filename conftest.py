@@ -1,15 +1,15 @@
+import time
+import pytest
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-import pytest
-import time
-from selenium import webdriver
 
 
 def pytest_addoption(parser):
     parser.addoption('--language', action='store', default="en",
                  help="Choose language")
     parser.addoption('--browser_name', action='store', default="chrome",
-                 help="Choose browser")                
+                 help="Choose browser")
 
 @pytest.fixture(scope="function")
 def browser(request):

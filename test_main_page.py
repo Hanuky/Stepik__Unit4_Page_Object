@@ -21,12 +21,12 @@ def test_guest_should_see_login_link(browser):
     page.open()
     page.should_be_login_link()
 
-def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):    
+def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
-    page = MainPage(browser, link) 
+    page = MainPage(browser, link)
     page.open()
     page.guest_should_see_basket_button_on_main_page()
-    page.guest_can_clik_on_basket_button()
+    page.guest_can_click_on_basket_button()
     basket = BasketPage(browser, link)
     basket.should_not_see_success_message_in_empty_basket()
     basket.should_be_message_basket_empty()
